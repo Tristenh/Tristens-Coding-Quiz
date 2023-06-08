@@ -25,13 +25,30 @@
       </p>
       <button class="start" type="submit">Start</button>
     </article>
-    <!-- article -->
+    <!-- question -->
     <article class="multiple-choice">
       <h2>Commonly used data types DO Not include:</h2>
       <button class="btn">1. strings</button>
       <button class="btn">2. booleans</button>
       <button class="btn">3. alets</button>
       <button class="btn">4. numbers</button>
+    </article>
+    <!-- end of question -->
+    <!-- end game page -->
+    <article class="gameover">
+      <h2>All done !</h2>
+      <p class="score">Your final score is</p>
+      <form class="score-form" onsubmit="preventDefault()">
+        <label for="">Enter initials</label>
+        <input
+          class="initials"
+          type="text"
+          required
+          maxlength="20"
+          minlength="3"
+        />
+        <button class="submit" type="submit">Submit</button>
+      </form>
     </article>
     <script src="./scripts.js"></script>
   </body>
