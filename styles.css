@@ -6,3 +6,30 @@ nav ul{
     list-style: none;
     margin-right: 4rem;
 }
+/* article */
+article{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    flex-direction: column;
+}
+h2{
+    text-align: center;
+    margin-left: 8rem;
+}
+/* buttons */
+button{
+    background-color: #351C75;
+    color: #fff;
+    padding: 0.5rem 1.5rem;
+    border-radius: 10px;
+    font-size: 2rem;
+    border: none;
+    margin-top: 1rem;
+    width: 20rem;
+    text-align: left;
+}
+button:focus{
+    background-color: #BD60EF;
+}
