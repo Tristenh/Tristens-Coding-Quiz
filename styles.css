@@ -16,7 +16,8 @@ article{
 }
 h2{
     text-align: center;
-    margin-left: 8rem;
+    width: 22rem;
+    text-align: left;
 }
 /* buttons */
 button{
@@ -27,7 +28,7 @@ button{
     font-size: 2rem;
     border: none;
     margin-top: 1rem;
-    width: 20rem;
+    width: 22rem;
     text-align: left;
 }
 button:focus{

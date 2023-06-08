@@ -1,5 +1,14 @@
 const timer = document.querySelector(".countdown");
 const start = document.querySelector(".start");
+const multipleChoice = document.querySelectorAll(".multiple-choice");
+const correctAnswer = document.querySelectorAll(".correct");
+
+let points = 1;
+for (let i = 0; i < correctAnswer.length; i++) {
+  correctAnswer[i].addEventListener("click", function () {
+    console.log(points++);
+  });
+}
 
 // start click event
 start.addEventListener("click", function () {
