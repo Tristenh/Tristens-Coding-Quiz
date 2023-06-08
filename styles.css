@@ -1,0 +1,8 @@
+/* nav */
+nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+    margin-right: 4rem;
+}
