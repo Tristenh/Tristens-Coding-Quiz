@@ -20,7 +20,7 @@ h2{
     text-align: left;
 }
 /* buttons */
-button{
+button, .correct{
     background-color: #351C75;
     color: #fff;
     padding: 0.5rem 1.5rem;
