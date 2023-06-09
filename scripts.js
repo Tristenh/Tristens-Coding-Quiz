@@ -15,12 +15,15 @@ for (let i = 0; i < correctAnswer.length; i++) {
   });
 }
 // wrong answer take saway 10 seconds
-for (let i = 0; i < btn.length; i++) {
-  btn[i].addEventListener("click", function () {
-    points++;
-    timeLeft -= 10;
-    console.log(points);
-  });
+minusTime()
+function minusTime() {
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", function () {
+      points++;
+      timeLeft -= 10;
+      console.log(points);
+    });
+  }
 }
 
 // start click event
@@ -33,7 +36,8 @@ function countdown() {
   let timeInterval = setInterval(function () {
     timeLeft--;
     timer.textContent = "Time : " + timeLeft;
-    if (timeLeft === 0) {
+    if (timeLeft <= 0) {
+      minusTime();
       clearInterval(timeInterval);
     }
   }, 1000);
