@@ -1,14 +1,14 @@
 const timer = document.querySelector(".countdown");
 const start = document.querySelector(".start");
 const multipleChoice = document.querySelectorAll(".multiple-choice");
-const correctAnswer = document.querySelector(".correct");
+const correctAnswer = document.querySelectorAll(".correct");
 const btn = document.querySelectorAll(".btn");
 const gameovver = document.querySelector(".gameover");
 const homepage = document.querySelector(".homepage");
 
 let timeLeft = 75;
 let points = 0;
-index = 0;
+let index = 0;
 // hide Content
 hideContent();
 function hideContent() {
@@ -24,11 +24,15 @@ function showQuestions(index) {
   }
 }
 // add points
-for (let i = 0; i < correctAnswer.length; i++) {
-  correctAnswer[i].addEventListener("click", function () {
-    points++;
-    console.log(points);
-  });
+function nextQuestion() {
+  for (let i = 0; i < correctAnswer.length; i++) {
+    correctAnswer[i].addEventListener("click", function () {
+      hideContent()
+      points++;
+      index++;
+      showQuestions(index)
+    });
+  }
 }
 // wrong answer take away 10 seconds
 minusTime();
@@ -46,6 +50,7 @@ start.addEventListener("click", function () {
   homepage.style.display = "none";
   countdown();
   showQuestions(0);
+  nextQuestion()
 });
 
 // counting down function
