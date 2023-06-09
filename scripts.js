@@ -18,9 +18,9 @@ function hideContent() {
   }
 }
 // show questions
-function showQuestions() {
+function showQuestions(index) {
   for (let i = 0; i < multipleChoice.length; i++) {
-    multipleChoice[i].style.display = "flex";
+    multipleChoice[index].style.display = "flex";
   }
 }
 // add points
