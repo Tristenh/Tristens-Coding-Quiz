@@ -1,4 +1,4 @@
-# TristenCodingQuiz!
+# Tristens-Coding-Quiz!
 ## Test your coding knowledge in this interactive quiz but be careful each wrong answer deducts 10 seconds from your 75 second timer, once all questions are answered or you time out you'll be greated with the end page displaying you final score you will have a form to submit your score to the high scores page! 
 
 ## deployed application 
