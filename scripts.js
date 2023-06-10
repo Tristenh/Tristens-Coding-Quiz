@@ -8,8 +8,8 @@ const homepage = document.querySelector(".homepage");
 const score = document.querySelector(".score");
 const answerOutcome = document.querySelectorAll(".answer-outcome");
 const submit = document.querySelector(".submit");
-const combinedTextArea = document.querySelector(".combined-textarea");
-const initials = document.querySelector(".initials");
+const combinedTextArea = document.querySelector("#combined-textarea");
+const initials = document.querySelector("#initials");
 const showInitials = document.querySelector(".show-initials");
 const timeScore = document.querySelector(".time-score");
 const viewHighScores = document.querySelector(".view-high-scores");
@@ -135,7 +135,7 @@ submit.addEventListener("click", function (event) {
   highScoresPage.style.display = "flex";
 
   event.preventDefault();
-  let initialsValue = document.querySelector(".initials").value;
+  let initialsValue = document.querySelector("#initials").value;
   localStorage.setItem("initials", initialsValue);
 
   let timeValue = timeLeft.toString();

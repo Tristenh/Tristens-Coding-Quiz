@@ -97,10 +97,10 @@
       <div class="align">
         <h2>All done !</h2>
         <p class="score">Your final score is</p>
-        <form class="score-form" onsubmit="preventDefault()">
-          <label for="">Enter initials</label>
+        <form name="score-form" class="score-form" onsubmit="preventDefault()">
+          <label for="initials">Enter initials</label>
           <input
-          class="initials"
+          id="initials"
           type="text"
           required
           maxlength="20"
@@ -112,12 +112,12 @@
       <!-- high scores page -->
     </article>
     <article class="high-scores-page">
-      <form class="high-score-form" action="">
+      <form id="high=scores" name="high-scores" class="high-score-form" action="">
         <h2>High scores</h2>
-        <textarea class="combined-textarea" cols="100%" rows="1"></textarea>
+        <textarea id="combined-textarea" for ="high-scores" title="High-scores" cols="100%" rows="1"></textarea>
         <div class="button-control">
-          <button class="back-to-main">Go back</button>
-          <button class="clear-high-scores">Clear high scores</button>
+          <button type="button" class="back-to-main">Go back</button>
+          <button type="button" class="clear-high-scores">Clear high scores</button>
         </div>
       </form>
     </article>
