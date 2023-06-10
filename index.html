@@ -11,7 +11,11 @@
     <!-- nav -->
     <nav>
       <ul>
-        <li><a href="#">View high scores</a></li>
+        <li>
+          <a class="view-high-scores" href="#high-scores-page"
+            >View high scores</a
+          >
+        </li>
         <li class="countdown">Time : 0</li>
       </ul>
     </nav>
@@ -96,8 +100,11 @@
         />
         <button class="submit" type="submit">Submit</button>
       </form>
+    </article>
+    <article class="high-scores-page">
       <p class="show-initials"></p>
       <p class="time-score"></p>
+      <a class="back-to-main" href="#">back to main</a>
     </article>
     <script src="./scripts.js"></script>
   </body>

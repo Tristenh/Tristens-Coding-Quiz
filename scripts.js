@@ -7,15 +7,28 @@ const gameover = document.querySelector(".gameover");
 const homepage = document.querySelector(".homepage");
 const score = document.querySelector(".score");
 const answerOutcome = document.querySelectorAll(".answer-outcome");
-let submit = document.querySelector(".submit");
-let initials = document.querySelector(".initials");
-let showInitials = document.querySelector(".show-initials");
-let timeScore = document.querySelector(".time-score");
+const submit = document.querySelector(".submit");
+const initials = document.querySelector(".initials");
+const showInitials = document.querySelector(".show-initials");
+const timeScore = document.querySelector(".time-score");
+const viewHighScores = document.querySelector(".view-high-scores");
+const highScoresPage = document.querySelector(".high-scores-page");
+const backToMain = document.querySelector(".back-to-main");
 
 let timeLeft = 75;
 let points = 0;
 let index = 0;
 gameover.style.display = "none";
+highScoresPage.style.display = "none";
+
+viewHighScores.addEventListener("click", function () {
+  homepage.style.display = "none";
+  highScoresPage.style.display = "flex";
+});
+backToMain.addEventListener("click", function () {
+  homepage.style.display = "flex";
+  highScoresPage.style.display = "none";
+});
 
 for (let i = 0; i < answerOutcome.length; i++) {
   answerOutcome[i].style.display = "none";
@@ -95,6 +108,10 @@ function endGame() {
 
 // setItem
 submit.addEventListener("click", function (event) {
+  gameover.style.display = "none";
+
+  highScoresPage.style.display = "flex";
+
   event.preventDefault();
   let initialsValue = document.querySelector(".initials").value;
   localStorage.setItem("initials", initialsValue);
