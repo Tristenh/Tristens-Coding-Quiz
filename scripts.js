@@ -3,18 +3,20 @@ const start = document.querySelector(".start");
 const multipleChoice = document.querySelectorAll(".multiple-choice");
 const correctAnswer = document.querySelectorAll(".correct");
 const btn = document.querySelectorAll(".btn");
-const gameovver = document.querySelector(".gameover");
+const gameover = document.querySelector(".gameover");
 const homepage = document.querySelector(".homepage");
+const score = document.querySelector(".score");
 
 let timeLeft = 75;
 let points = 0;
 let index = 0;
+gameover.style.display = "none";
+
 // hide Content
 hideContent();
 function hideContent() {
   for (let i = 0; i < multipleChoice.length; i++) {
     multipleChoice[i].style.display = "none";
-    gameovver.style.display = "none";
   }
 }
 // show questions
@@ -27,10 +29,10 @@ function showQuestions(index) {
 function nextQuestion() {
   for (let i = 0; i < correctAnswer.length; i++) {
     correctAnswer[i].addEventListener("click", function () {
-      hideContent()
+      hideContent();
       points++;
       index++;
-      showQuestions(index)
+      showQuestions(index);
     });
   }
 }
@@ -50,7 +52,7 @@ start.addEventListener("click", function () {
   homepage.style.display = "none";
   countdown();
   showQuestions(0);
-  nextQuestion()
+  nextQuestion();
 });
 
 // counting down function
@@ -58,8 +60,16 @@ function countdown() {
   let timeInterval = setInterval(function () {
     timeLeft--;
     timer.textContent = "Time : " + timeLeft;
-    if (timeLeft < 0 || timeLeft === 0) {
+    if (timeLeft < 0 || timeLeft === 0 || index === multipleChoice.length) {
       clearInterval(timeInterval);
+      endGame();
     }
   }, 1000);
 }
+// end of game
+
+function endGame() {
+  hideContent();
+    gameover.style.display = "flex";
+    score.innerHTML = "Your final score is " + timeLeft
+  }
