@@ -34,3 +34,13 @@ button, .correct{
 button:focus{
     background-color: #BD60EF;
 }
+.answer-outcome{
+    border-top: 2px solid #A9A9A9;
+    color: #A9A9A9;
+    margin-top: 3rem;
+    width: 22rem;
+    text-align: center;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+}
