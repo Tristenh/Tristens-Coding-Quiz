@@ -15,76 +15,17 @@ const timeScore = document.querySelector(".time-score");
 const viewHighScores = document.querySelector(".view-high-scores");
 const highScoresPage = document.querySelector(".high-scores-page");
 const backToMain = document.querySelector(".back-to-main");
+const clearHighScores = document.querySelector(".clear-high-scores");
 
+// variables
 let timeLeft = 75;
 let points = 0;
 let index = 0;
 let timeInterval;
+
+// initial style display
 gameover.style.display = "none";
 highScoresPage.style.display = "none";
-
-viewHighScores.addEventListener("click", function () {
-  homepage.style.display = "none";
-  highScoresPage.style.display = "flex";
-});
-backToMain.addEventListener("click", function () {
-  homepage.style.display = "flex";
-  highScoresPage.style.display = "none";
-  resetGame();
-});
-
-for (let i = 0; i < answerOutcome.length; i++) {
-  answerOutcome[i].style.display = "none";
-}
-function showOutcome(isCorrect) {
-  for (let i = 0; i < answerOutcome.length; i++) {
-    answerOutcome[i].style.display = "flex";
-    answerOutcome[i].textContent = isCorrect ? "correct" : "wrong";
-    setTimeout(function () {
-      answerOutcome[i].style.display = "none";
-    }, 1000);
-  }
-}
-
-// hide Content
-hideContent();
-function hideContent() {
-  for (let i = 0; i < multipleChoice.length; i++) {
-    multipleChoice[i].style.display = "none";
-  }
-}
-// show questions
-function showQuestions(index) {
-  for (let i = 0; i < multipleChoice.length; i++) {
-    if (multipleChoice[index]) {
-      multipleChoice[index].style.display = "flex";
-    }
-  }
-}
-// add points
-nextQuestion();
-function nextQuestion() {
-  for (let i = 0; i < correctAnswer.length; i++) {
-    correctAnswer[i].addEventListener("click", function () {
-      hideContent();
-      showOutcome(true);
-      points++;
-      index++;
-      showQuestions(index);
-    });
-  }
-}
-// wrong answer take away 10 seconds
-wrongQuestion();
-function wrongQuestion() {
-  for (let i = 0; i < btn.length; i++) {
-    btn[i].addEventListener("click", function () {
-      showOutcome(false);
-      points++;
-      timeLeft -= 10;
-    });
-  }
-}
 
 // start click event
 startGame();
@@ -107,6 +48,80 @@ function countdown() {
     }
   }, 1000);
 }
+
+// hide Content
+hideContent();
+function hideContent() {
+  for (let i = 0; i < multipleChoice.length; i++) {
+    multipleChoice[i].style.display = "none";
+  }
+}
+
+// show questions
+function showQuestions(index) {
+  for (let i = 0; i < multipleChoice.length; i++) {
+    if (multipleChoice[index]) {
+      multipleChoice[index].style.display = "flex";
+    }
+  }
+}
+
+// if correct answer hides the current question and shows the next question
+nextQuestion();
+function nextQuestion() {
+  for (let i = 0; i < correctAnswer.length; i++) {
+    correctAnswer[i].addEventListener("click", function () {
+      hideContent();
+      showOutcome(true);
+      points++;
+      index++;
+      showQuestions(index);
+    });
+  }
+}
+
+// wrong answer take away 10 seconds
+wrongQuestion();
+function wrongQuestion() {
+  for (let i = 0; i < btn.length; i++) {
+    btn[i].addEventListener("click", function () {
+      showOutcome(false);
+      points++;
+      timeLeft -= 10;
+    });
+  }
+}
+
+// answerOutcome for loop
+for (let i = 0; i < answerOutcome.length; i++) {
+  answerOutcome[i].style.display = "none";
+}
+
+// shows outcome of answer whether correct or wrong
+function showOutcome(isCorrect) {
+  for (let i = 0; i < answerOutcome.length; i++) {
+    answerOutcome[i].style.display = "flex";
+    answerOutcome[i].textContent = isCorrect ? "correct" : "wrong";
+    setTimeout(function () {
+      answerOutcome[i].style.display = "none";
+    }, 1000);
+  }
+}
+
+// view high scores button
+viewHighScores.addEventListener("click", function () {
+  homepage.style.display = "none";
+  hideContent();
+  highScoresPage.style.display = "flex";
+});
+
+// back to main page button
+backToMain.addEventListener("click", function () {
+  homepage.style.display = "flex";
+  highScoresPage.style.display = "none";
+  resetGame();
+});
+
 // end of game
 function endGame() {
   hideContent();
@@ -114,10 +129,9 @@ function endGame() {
   score.innerHTML = "Your final score is " + timeLeft;
 }
 
-// setItem
+// setItem for saving scores
 submit.addEventListener("click", function (event) {
   gameover.style.display = "none";
-
   highScoresPage.style.display = "flex";
 
   event.preventDefault();
@@ -128,7 +142,7 @@ submit.addEventListener("click", function (event) {
   localStorage.setItem("timeValue", timeValue);
   renderScore();
 });
-// getItem
+// getItem gets items and displays them
 combinedTextArea.value = initials.value + " - " + timeLeft;
 renderScore();
 function renderScore() {
@@ -138,6 +152,7 @@ function renderScore() {
   combinedTextArea.value = storedInitials + " - " + storedTime;
 }
 
+// reset the game variables to default
 function resetGame() {
   timeLeft = 75;
   points = 0;
@@ -146,4 +161,13 @@ function resetGame() {
   hideContent();
   clearInterval(timeInterval);
   timer.textContent = "Time : " + timeLeft;
+}
+
+// clears high scores on page refresh
+clearHighScoresButton();
+function clearHighScoresButton() {
+  clearHighScores.addEventListener("click", function () {
+    localStorage.removeItem("initials");
+    localStorage.removeItem("timeValue");
+  });
 }

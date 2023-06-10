@@ -1,3 +1,17 @@
+
+/* global */
+h1{
+    font-size: 4rem;
+}
+h2{
+    text-align: center;
+    text-align: left;
+    font-size: 3rem;
+}
+p{
+    font-size: 2rem;
+    width: 80%;
+}
 /* nav */
 nav ul{
     display: flex;
@@ -6,6 +20,7 @@ nav ul{
     list-style: none;
     margin-right: 4rem;
 }
+
 /* article */
 article{
     display: flex;
@@ -22,14 +37,6 @@ article{
     justify-content: left;
 }
 
-h1{
-    font-size: 4rem;
-}
-h2{
-    text-align: center;
-    text-align: left;
-    font-size: 3rem;
-}
 /* buttons */
 button, .correct{
     background-color: #351C75;
@@ -45,18 +52,6 @@ button, .correct{
 button:focus{
     background-color: #BD60EF;
 }
-.answer-outcome{
-    border-top: 2px solid #A9A9A9;
-    color: #A9A9A9;
-    margin-top: 3rem;
-    width: 24rem;
-
-}
-.high-score-form{
-    display: flex;
-    flex-direction: column;
-}
-
 .button-control{
     display: flex;
     flex-direction: row;
@@ -65,13 +60,25 @@ button:focus{
     margin-left: 0rem;
     margin-right: 1rem;
 }
+
+/* answer outcome  */
+.answer-outcome{
+    border-top: 2px solid #A9A9A9;
+    color: #A9A9A9;
+    margin-top: 3rem;
+    width: 24rem;
+
+}
+
+/* high scores */
 textarea {
     background-color: #D9D3E9;
     border: none;
     font-size: 3rem;
     width: 50rem;
 }
-p{
-    font-size: 2rem;
-    width: 80%;
+.high-score-form{
+    display: flex;
+    flex-direction: column;
 }
+
