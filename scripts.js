@@ -18,6 +18,7 @@ const backToMain = document.querySelector(".back-to-main");
 let timeLeft = 75;
 let points = 0;
 let index = 0;
+let timeInterval;
 gameover.style.display = "none";
 highScoresPage.style.display = "none";
 
@@ -28,6 +29,7 @@ viewHighScores.addEventListener("click", function () {
 backToMain.addEventListener("click", function () {
   homepage.style.display = "flex";
   highScoresPage.style.display = "none";
+  resetGame();
 });
 
 for (let i = 0; i < answerOutcome.length; i++) {
@@ -53,10 +55,13 @@ function hideContent() {
 // show questions
 function showQuestions(index) {
   for (let i = 0; i < multipleChoice.length; i++) {
-    multipleChoice[index].style.display = "flex";
+    if (multipleChoice[index]) {
+      multipleChoice[index].style.display = "flex";
+    }
   }
 }
 // add points
+nextQuestion();
 function nextQuestion() {
   for (let i = 0; i < correctAnswer.length; i++) {
     correctAnswer[i].addEventListener("click", function () {
@@ -69,6 +74,7 @@ function nextQuestion() {
   }
 }
 // wrong answer take away 10 seconds
+wrongQuestion();
 function wrongQuestion() {
   for (let i = 0; i < btn.length; i++) {
     btn[i].addEventListener("click", function () {
@@ -80,13 +86,14 @@ function wrongQuestion() {
 }
 
 // start click event
-start.addEventListener("click", function () {
-  homepage.style.display = "none";
-  countdown();
-  showQuestions(0);
-  nextQuestion();
-  wrongQuestion();
-});
+startGame();
+function startGame() {
+  start.addEventListener("click", function () {
+    homepage.style.display = "none";
+    countdown();
+    showQuestions(0);
+  });
+}
 
 // counting down function
 function countdown() {
@@ -121,6 +128,7 @@ submit.addEventListener("click", function (event) {
   renderScore();
 });
 // getItem
+renderScore();
 function renderScore() {
   let storedInitials = localStorage.getItem("initials");
   showInitials.textContent = storedInitials;
@@ -128,4 +136,13 @@ function renderScore() {
   let storedTime = localStorage.getItem("timeValue");
   timeScore.textContent = storedTime;
 }
-renderScore();
+
+function resetGame() {
+  timeLeft = 75;
+  points = 0;
+  index = 0;
+  gameover.style.display = "none";
+  hideContent();
+  clearInterval(timeInterval);
+  timer.textContent = "Time : " + timeLeft;
+}
