@@ -8,6 +8,7 @@ const homepage = document.querySelector(".homepage");
 const score = document.querySelector(".score");
 const answerOutcome = document.querySelectorAll(".answer-outcome");
 const submit = document.querySelector(".submit");
+const combinedTextArea = document.querySelector(".combined-textarea");
 const initials = document.querySelector(".initials");
 const showInitials = document.querySelector(".show-initials");
 const timeScore = document.querySelector(".time-score");
@@ -128,13 +129,13 @@ submit.addEventListener("click", function (event) {
   renderScore();
 });
 // getItem
+combinedTextArea.value = initials.value + " - " + timeLeft;
 renderScore();
 function renderScore() {
   let storedInitials = localStorage.getItem("initials");
-  showInitials.textContent = storedInitials;
 
   let storedTime = localStorage.getItem("timeValue");
-  timeScore.textContent = storedTime;
+  combinedTextArea.value = storedInitials + " - " + storedTime;
 }
 
 function resetGame() {

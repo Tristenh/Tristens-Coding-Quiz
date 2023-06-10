@@ -14,10 +14,21 @@ article{
     text-align: center;
     flex-direction: column;
 }
+.align{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: left;
+}
+
+h1{
+    font-size: 4rem;
+}
 h2{
     text-align: center;
-    width: 22rem;
     text-align: left;
+    font-size: 3rem;
 }
 /* buttons */
 button, .correct{
@@ -28,7 +39,7 @@ button, .correct{
     font-size: 2rem;
     border: none;
     margin-top: 1rem;
-    width: 22rem;
+    width: 24rem;
     text-align: left;
 }
 button:focus{
@@ -38,9 +49,29 @@ button:focus{
     border-top: 2px solid #A9A9A9;
     color: #A9A9A9;
     margin-top: 3rem;
-    width: 22rem;
-    text-align: center;
+    width: 24rem;
+
+}
+.high-score-form{
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
+    flex-direction: column;
+}
+
+.button-control{
+    display: flex;
+    flex-direction: row;
+}
+.button-control button{
+    margin-left: 0rem;
+    margin-right: 1rem;
+}
+textarea {
+    background-color: #D9D3E9;
+    border: none;
+    font-size: 3rem;
+    width: 50rem;
+}
+p{
+    font-size: 2rem;
+    width: 80%;
 }

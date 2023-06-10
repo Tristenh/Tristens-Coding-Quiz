@@ -31,80 +31,93 @@
     </article>
     <!-- question -->
     <article class="multiple-choice">
+      <div class="align">
       <h2>Commonly used data types DO Not include:</h2>
       <button class="btn">1. strings</button>
       <button class="btn">2. booleans</button>
       <button class="correct">3. alerts</button>
       <button class="btn">4. numbers</button>
       <div class="answer-outcome"></div>
+    </div>
     </article>
     <!-- end of question -->
     <!-- question -->
     <article class="multiple-choice">
+      <div class="align">
       <h2>The condition in an if / else statement is enclised with _____</h2>
       <button class="btn">1. quotes</button>
       <button class="btn">2. curly brackets</button>
       <button class="correct">3. parenthsis</button>
       <button class="btn">4. square brackets</button>
       <div class="answer-outcome"></div>
+      </div>
     </article>
     <!-- end of question -->
     <!-- question -->
     <article class="multiple-choice">
-      <h2>Arrays in JavaScript can be used t store</h2>
-      <button class="btn">1. numbers and strings</button>
-      <button class="btn">2. other arrays</button>
-      <button class="btn">3. booleans</button>
-      <button class="correct">4. all of the above</button>
-      <div class="answer-outcome"></div>
+      <div class="align">
+        <h2>Arrays in JavaScript can be used to store</h2>
+        <button class="btn">1. numbers and strings</button>
+        <button class="btn">2. other arrays</button>
+        <button class="btn">3. booleans</button>
+        <button class="correct">4. all of the above</button>
+        <div class="answer-outcome"></div>
+      </div>
     </article>
     <!-- end of question -->
     <!-- question -->
     <article class="multiple-choice">
-      <h2>
-        String values, must be enclosed within _____ when getting assinged to
-        varibles
-      </h2>
+      <div class="align">
+      <h2>String values, must be enclosed within _____ when getting assinged to
+        varibles</h2>
       <button class="btn">1. commas</button>
       <button class="btn">2. curly brackets</button>
       <button class="correct">3. quotes</button>
       <button class="btn">4. parenthsis</button>
       <div class="answer-outcome"></div>
+    </div>
     </article>
     <!-- end of question -->
     <!-- question -->
     <article class="multiple-choice">
-      <h2>
-        A very useful tool used during development and debugging for printing
-        content to the debugger is
-      </h2>
+      <div class="align">
+      <h2>A very useful tool used during development and debugging for printing
+        content to the debugger is</h2>
       <button class="btn">1. JavaScript</button>
       <button class="btn">2. terminal/bash</button>
       <button class="btn">3. for loops</button>
       <button class="correct">4. console.log</button>
       <div class="answer-outcome"></div>
+    </div>
     </article>
     <!-- end of question -->
     <!-- end game page -->
     <article class="gameover">
-      <h2>All done !</h2>
-      <p class="score">Your final score is</p>
-      <form class="score-form" onsubmit="preventDefault()">
-        <label for="">Enter initials</label>
-        <input
+      <div class="align">
+        <h2>All done !</h2>
+        <p class="score">Your final score is</p>
+        <form class="score-form" onsubmit="preventDefault()">
+          <label for="">Enter initials</label>
+          <input
           class="initials"
           type="text"
           required
           maxlength="20"
           minlength="3"
-        />
-        <button class="submit" type="submit">Submit</button>
+          />
+          <button class="submit" type="submit">Submit</button>
+        </div>
       </form>
     </article>
     <article class="high-scores-page">
-      <p class="show-initials"></p>
-      <p class="time-score"></p>
-      <a class="back-to-main" href="#">back to main</a>
+      <form class="high-score-form" action="">
+        <h2>High scores</h2>
+        <textarea class="combined-textarea" cols="100%" rows="1"></textarea>
+        <div class="button-control">
+          <button class="back-to-main">Go back</button>
+          <button class="clear-high-scores">Clear high scores</button>
+        </div>
+      </form>
     </article>
     <script src="./scripts.js"></script>
   </body>
