@@ -7,6 +7,10 @@ const gameover = document.querySelector(".gameover");
 const homepage = document.querySelector(".homepage");
 const score = document.querySelector(".score");
 const answerOutcome = document.querySelectorAll(".answer-outcome");
+let submit = document.querySelector(".submit");
+let initials = document.querySelector(".initials");
+let showInitials = document.querySelector(".show-initials");
+let timeScore = document.querySelector(".time-score");
 
 let timeLeft = 75;
 let points = 0;
@@ -83,9 +87,28 @@ function countdown() {
   }, 1000);
 }
 // end of game
-
 function endGame() {
   hideContent();
   gameover.style.display = "flex";
   score.innerHTML = "Your final score is " + timeLeft;
 }
+
+// setItem
+submit.addEventListener("click", function (event) {
+  event.preventDefault();
+  let initialsValue = document.querySelector(".initials").value;
+  localStorage.setItem("initials", initialsValue);
+
+  let timeValue = timeLeft.toString();
+  localStorage.setItem("timeValue", timeValue);
+  renderScore();
+});
+// getItem
+function renderScore() {
+  let storedInitials = localStorage.getItem("initials");
+  showInitials.textContent = storedInitials;
+
+  let storedTime = localStorage.getItem("timeValue");
+  timeScore.textContent = storedTime;
+}
+renderScore();
